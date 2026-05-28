@@ -1,4 +1,5 @@
 const operations = ["+", "-", "*"];
+
 let score = 0;
 let correctAnswer = 0;
 
@@ -11,12 +12,9 @@ function generateQuestion()
 
   document.getElementById("question").textContent = `${num1} ${operation} ${num2}`;
 
-  if (operation === "+") 
-    correctAnswer = num1 + num2;
-  else if (operation === "-") 
-    correctAnswer = num1 - num2;
-  else if (operation === "*") 
-    correctAnswer = num1 * num2;
+  if (operation === "+") correctAnswer = num1 + num2;
+  else if (operation === "-") correctAnswer = num1 - num2;
+  else if (operation === "*") correctAnswer = num1 * num2;
 }
 
 function checkAnswer() 
@@ -28,7 +26,6 @@ function checkAnswer()
 
   generateQuestion();
   document.getElementById("answer").value = "";
-  if (document.getElementById("answer").value === "") return;
 
   if (isCorrect) 
     {
@@ -43,8 +40,7 @@ function checkAnswer()
     messageEl.textContent = `Wrong! Correct answer is ${prevAnswer}.`;
   }
 
-  if (score >= 5) 
-    {
+  if (score >= 5) {
     document.getElementById("div-questions").style.display = "none";
     document.getElementById("div-success").style.display = "block";
   }
